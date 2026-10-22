@@ -9,7 +9,7 @@ class TextCounter {
         //https://stackoverflow.com/questions/61749642/kotlin-count-no-of-occurrences-of-string-in-string
         fun countSentences(text: String): Int {
             if (text.isBlank()) return 0
-            return text.split(".").size - 1
+            return text.split(".", "!", "?").count {it.isNotBlank()}
         }
 
         //https://stackoverflow.com/questions/55426910/how-to-count-the-number-of-words-in-kotlin-android
@@ -22,7 +22,7 @@ class TextCounter {
         //https://stackoverflow.com/questions/71104286/count-the-number-of-punctuation-symbols-in-a-string-kotlin
         fun countPunctuation(text: String): Int {
             if (text.isBlank()) return 0
-            val punctuationSymbols = setOf('.', ',','!','?',':','-')
+            val punctuationSymbols = setOf('.', ',', ' ')
 
             return text.count{char -> char in punctuationSymbols}
         }
@@ -31,6 +31,6 @@ class TextCounter {
         fun countDigits(text: String): Int {
             if (text.isBlank()) return 0
             return text.count {it.isDigit()}
-        }
+        }//manau cia skaitmenys
     }
 }
